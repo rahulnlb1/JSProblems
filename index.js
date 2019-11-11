@@ -18,6 +18,10 @@ import {
     objectTransform2
 } from "./src/objectTransformation"
 
+import {
+    flatten_access
+} from "./src/flatten"
+
 
 console.log("Sqaure of Arrays " + approach3([1, 2, 3, 4, 5]));
 console.log("Sqaure of Odd Numbers " + squareOfOdd([1, 2, 3, 4, 5]));
@@ -32,3 +36,32 @@ const obj = {
 };
 
 console.log("Object Transformation" + JSON.stringify(objectTransform2(objectTransform1(obj))));
+
+const obj1 = {
+    a: {
+
+        b: {
+
+            c: {
+
+                d: [{
+
+                    e: "Hello"
+                }]
+            }
+        },
+
+        f: {
+            fg: {
+                gg: [{
+
+                    abc: {
+                        some: "Value"
+                    }
+                }]
+            }
+        }
+    }
+};
+
+console.log("Flattened Access" + flatten_access(obj1, "a.b.c.d[0].e"));
