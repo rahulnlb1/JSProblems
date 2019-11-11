@@ -13,9 +13,22 @@ import {
     recurse
 } from "./src/product"
 
+import {
+    objectTransform1,
+    objectTransform2
+} from "./src/objectTransformation"
+
 
 console.log("Sqaure of Arrays " + approach3([1, 2, 3, 4, 5]));
 console.log("Sqaure of Odd Numbers " + squareOfOdd([1, 2, 3, 4, 5]));
 console.log("Sum of Sqaure of Odd Numbers " + sumOfSquareOfOdd([1, 2, 3, 4, 5]));
 console.log("Product of 2 and 3 is " + productLoop(2, 3));
 console.log("Product of 2 and 3 using recursion is " + recurse(2, 3));
+
+const obj = {
+    1: "John",
+    2: "Doe",
+    3: "Superman"
+};
+
+console.log("Object Transformation" + JSON.stringify(objectTransform2(objectTransform1(obj))));
