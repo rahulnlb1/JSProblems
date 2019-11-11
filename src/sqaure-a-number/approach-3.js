@@ -1,0 +1,1 @@
+export const sqaure = (arr) => arr.map(element => element * element);
