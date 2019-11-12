@@ -22,6 +22,10 @@ import {
     flatten_access
 } from "./src/flatten"
 
+import {
+    combinations
+} from "./src/combinations"
+
 
 console.log("Sqaure of Arrays " + approach3([1, 2, 3, 4, 5]));
 console.log("Sqaure of Odd Numbers " + squareOfOdd([1, 2, 3, 4, 5]));
@@ -65,3 +69,6 @@ const obj1 = {
 };
 
 console.log("Flattened Access" + flatten_access(obj1, "a.b.c.d[0].e"));
+
+
+console.log("All combinations of 123 are " + JSON.stringify(combinations(123)));
