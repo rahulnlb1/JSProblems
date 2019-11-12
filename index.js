@@ -26,6 +26,10 @@ import {
     combinations
 } from "./src/combinations"
 
+import {
+    sumCombinations
+} from "./src/sum-combinations"
+
 
 console.log("Sqaure of Arrays " + approach3([1, 2, 3, 4, 5]));
 console.log("Sqaure of Odd Numbers " + squareOfOdd([1, 2, 3, 4, 5]));
@@ -72,3 +76,6 @@ console.log("Flattened Access" + flatten_access(obj1, "a.b.c.d[0].e"));
 
 
 console.log("All combinations of 123 are " + JSON.stringify(combinations(123)));
+
+
+console.log("Sum combinations are " + sumCombinations([-2, 862, 10, 1, 2], [8, 9, 0, 56, 653], 10))
