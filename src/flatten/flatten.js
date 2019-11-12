@@ -1,5 +1,5 @@
 import {
-    access
+  access
 } from "fs";
 
 /**
@@ -35,21 +35,38 @@ import {
   flatten_access(input, "a.b.c.d[0].e");
 */
 
-export const flatten_access = (object, acesss_string) => {
-    const flattened_object = {};
-    const flatten = (value, key = "") => {
-        if (typeof value != "object" || value instanceof Date || Object.entries(value).length === 0) {
-            flattened_object[key] = value;
-        } else if (Array.isArray(value)) {
-            Object.entries(value).forEach(([_index, _value]) => {
-                flatten(_value, `${key}[${_index}]`)
-            })
+export const flatten_access = (object, key) => {
+
+  const flattenedObject = {}
+
+  const flatten = (_object, string = "") => {
+
+    if (typeof _object != "object" || _object instanceof Date || Object.entries(_object).length === 0)
+      flattenedObject[string] = _object;
+    else {
+
+      for (const [_key, _value] of Object.entries(_object)) {
+
+        let stringToForward = "";
+
+        if (Array.isArray(_object)) {
+
+          stringToForward = `${string}[${_key}]`;
+
         } else {
-            Object.entries(value).forEach(([_key, _value]) => {
-                flatten(_value, key === "" ? _key : `${key}.${_key}`)
-            })
+
+          stringToForward = string === "" ? _key : `${string}.${_key}`
+
         }
+
+        flatten(_value, stringToForward);
+
+      }
+
     }
-    flatten(object);
-    return flattened_object[acesss_string];
+  }
+
+  flatten(object);
+  return flattenedObject[key]
+
 }
