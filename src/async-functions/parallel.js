@@ -2,13 +2,14 @@ const parallel = function(array, callback) {
   const length = array.length;
 
   let index = 0;
-
+  let finalResult = [];
   array.forEach(element => {
     element(function(err, result) {
       if (err) return err;
+      finalResult = [...finalResult, result];
       index++;
       if (index == length) {
-        callback();
+        callback(null, finalResult);
       }
     });
   });
@@ -33,8 +34,9 @@ const tasks = [
   asyncTask(5)
 ];
 
-function abc() {
-  console.log("abc");
+function abc(err, result) {
+  if (err) console.log(err);
+  console.log(result);
 }
 
 // run the async tasks in parallel
