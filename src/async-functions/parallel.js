@@ -8,7 +8,7 @@ const parallel = function(array, callback) {
       if (err) return err;
       finalResult = [...finalResult, result];
       index++;
-      if (index == length) {
+      if (index === length) {
         callback(null, finalResult);
       }
     });
