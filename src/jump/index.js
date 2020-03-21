@@ -1,20 +1,13 @@
 function isGoodIndex(arr) {
   let lastIndex = arr.length - 1;
 
-  while (lastIndex > 0) {
-    const initialLastIndex = lastIndex;
-    for (let i = lastIndex; i >= 0; i--) {
-      if (arr[i] + i >= lastIndex) {
-        lastIndex = i;
-      }
-    }
-
-    if (initialLastIndex === lastIndex) {
-      break;
+  for (let i = lastIndex - 1; i >= 0; i--) {
+    if (arr[i] + i >= lastIndex) {
+      lastIndex = i;
     }
   }
-  if (lastIndex === 0) return true;
-  else return false;
+
+  return lastIndex === 0;
 }
 
 const input1 = [2, 3, 1, 1, 4];
